@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Cocktail } from '../cocktail';
+import { Cocktail } from '../shared/cocktail.model';
 
 @Component({
-  selector: 'app-cocktails-list',
-  templateUrl: './cocktails-list.component.html',
-  styleUrls: ['./cocktails-list.component.scss']
+  selector: 'app-cocktail-container',
+  templateUrl: './cocktail-container.component.html',
+  styleUrls: ['./cocktail-container.component.scss']
 })
-export class CocktailsListComponent implements OnInit {
+export class CocktailContainerComponent implements OnInit {
 
   public cocktails:Cocktail[] = [
     new Cocktail('Mojito', 'https://static.750g.com/images/1200-630/b520523117d647dab6b842a36f4cc7f5/mojito-le-vrai.jpg', 'Le mojito, prononcé [moˈxito] en espagnol, ou mojito, morito, ou mohito en français, est un cocktail traditionnel de la cuisine cubaine et de la culture de Cuba, à base de rhum, de soda, de citron vert, et de feuilles de menthe fraîche.'),
@@ -14,9 +14,16 @@ export class CocktailsListComponent implements OnInit {
     new Cocktail('Sour', 'https://www.culinaryhill.com/wp-content/uploads/2018/11/whiskey-sour-cocktail-SQ-04-Culinary-Hill.png', "Traduit de l'anglais-Un sour est une famille traditionnelle de boissons mélangées. La Margarita et le sidecar sont des exemples courants. Les Sours appartiennent à l'une des anciennes familles de cocktails originaux et sont décrits par Jerry Thomas dans son livre de 1862, How to Mix Drinks."),
   ];
 
+  public cocktail:Cocktail;
+
   constructor() { }
 
   ngOnInit() {
+    this.cocktail = this.cocktails[0];
+  }
+
+  updateCocktail(index:number):void {
+    this.cocktail = this.cocktails[index];
   }
 
 }
