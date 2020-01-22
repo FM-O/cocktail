@@ -2,6 +2,7 @@
     <div class="list-group col-12" style="padding-right: 0; margin-bottom: 10px;">
         <a href="#" 
             class="list-group-item list-group-item-action"
+            [appActive]="index === activeCocktail"
             (click)="pickCocktail(index)"
             *ngFor="let cocktail of cocktails; let index = index">{{ cocktail.name }}</a>
     </div>
